@@ -19,7 +19,7 @@ var (
 
 	// Pattern matches Authorization: Basic <base64> or similar variations
 	// The base64 part should contain at least one colon when decoded (username:password format)
-	keyPat = regexp.MustCompile(`(?i)(?:authorization|auth)[\s:=]+basic[\s]+([A-Za-z0-9+/]{20,}={0,2})`)
+	keyPat = regexp.MustCompile(`(?i)(?:authorization|auth)[\s:=]+basic[\s]+([A-Za-z0-9+/]{8,}={0,2})`)
 )
 
 // Keywords are used for efficiently pre-filtering chunks.
