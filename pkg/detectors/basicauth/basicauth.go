@@ -39,8 +39,8 @@ func (s Scanner) FromData(ctx context.Context, verify bool, data []byte) (result
 		// Decode base64 to verify it contains username:password format
 		decoded, err := base64.StdEncoding.DecodeString(resMatch)
 		if err != nil {
-			// Try URL encoding as fallback
-			decoded, err = base64.URLEncoding.DecodeString(resMatch)
+			// Try without padding for unpadded base64 strings
+			decoded, err = base64.RawStdEncoding.DecodeString(resMatch)
 			if err != nil {
 				continue
 			}
